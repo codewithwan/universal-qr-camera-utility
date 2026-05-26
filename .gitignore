@@ -1,0 +1,7 @@
+# Compiled Firefox package
+universal-qr-camera-utility.zip
+dist-firefox/
+
+# OS-specific files
+.DS_Store
+Thumbs.db

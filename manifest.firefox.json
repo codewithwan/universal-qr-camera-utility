@@ -1,0 +1,70 @@
+{
+  "manifest_version": 2,
+  "name": "Universal QR Camera Utility",
+  "version": "1.0.0",
+  "description": "Advanced helper utility for capturing, processing, and validating QR codes from local camera video inputs and static image streams.",
+  "icons": {
+    "16": "icons/icon.png",
+    "48": "icons/icon.png",
+    "128": "icons/icon.png"
+  },
+  "browser_action": {
+    "default_title": "Universal QR Camera Dashboard",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon.png",
+      "48": "icons/icon.png",
+      "128": "icons/icon.png"
+    }
+  },
+  "permissions": [
+    "storage",
+    "https://discord.com/api/webhooks/*",
+    "https://presensi.polines.ac.id/*"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://presensi.polines.ac.id/*"
+      ],
+      "js": [
+        "content/qr-detector.js",
+        "content/gps-handler.js",
+        "content/camera-observer.js",
+        "content/ui-injector.js",
+        "content/content.js"
+      ],
+      "css": [
+        "content/styles.css"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    "content/bridge-geolocation.js",
+    "content/bridge-camera.js",
+    "content/bridge-network.js"
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "universal-qr-camera-utility@local",
+      "data_collection_permissions": {
+        "required": [
+          "websiteActivity",
+          "websiteContent",
+          "personalCommunications"
+        ]
+      },
+      "strict_min_version": "140.0"
+    },
+    "gecko_android": {
+      "strict_min_version": "142.0"
+    }
+  }
+}

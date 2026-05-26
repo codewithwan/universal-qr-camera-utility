@@ -1,0 +1,99 @@
+#qr-image-upload-root {
+  align-items: center;
+  background: rgba(16, 20, 24, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 7px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.24);
+  color: #ffffff;
+  display: none;
+  font-family: Arial, Helvetica, sans-serif;
+  gap: 6px;
+  max-width: min(260px, calc(100vw - 16px));
+  padding: 6px;
+  position: fixed;
+  z-index: 2147483647;
+}
+
+#qr-image-upload-root.pqu-visible {
+  display: flex;
+}
+
+#qr-image-upload-preview {
+  align-items: center;
+  background: #ffffff;
+  border: 2px solid rgba(39, 192, 138, 0.88);
+  border-radius: 8px;
+  box-sizing: border-box;
+  display: none;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: none;
+  position: fixed;
+  z-index: 2147483646;
+}
+
+#qr-image-upload-preview.pqu-visible {
+  display: flex;
+}
+
+#qr-image-upload-preview img {
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+#qr-image-upload-root .pqu-icon-button {
+  align-items: center;
+  appearance: none;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-flex;
+  flex: 0 0 auto;
+  font: 700 12px/1 Arial, Helvetica, sans-serif;
+  justify-content: center;
+  min-height: 30px;
+  width: 30px;
+}
+
+#qr-image-upload-root .pqu-upload-button {
+  background: #27c08a;
+  color: #08110d;
+}
+
+#qr-image-upload-root.pqu-has-pending .pqu-upload-button {
+  display: none;
+}
+
+#qr-image-upload-root .pqu-confirm-button {
+  background: #36d184;
+  color: #08110d;
+  display: none;
+}
+
+#qr-image-upload-root .pqu-cancel-button {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  display: none;
+}
+
+#qr-image-upload-root.pqu-has-pending .pqu-confirm-button,
+#qr-image-upload-root.pqu-has-pending .pqu-cancel-button {
+  display: inline-flex;
+}
+
+#qr-image-upload-root .pqu-icon-button:hover {
+  filter: brightness(1.15);
+}
+
+#qr-image-upload-root .pqu-icon-button svg {
+  display: block;
+  fill: currentColor;
+  height: 18px;
+  width: 18px;
+}
+
+#qr-image-upload-root .pqu-file {
+  display: none;
+}

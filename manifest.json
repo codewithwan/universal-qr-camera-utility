@@ -1,0 +1,59 @@
+{
+  "manifest_version": 3,
+  "name": "Universal QR Camera Utility",
+  "version": "1.0.0",
+  "description": "Advanced helper utility for capturing, processing, and validating QR codes from local camera video inputs and static image streams.",
+  "icons": {
+    "16": "icons/icon.png",
+    "48": "icons/icon.png",
+    "128": "icons/icon.png"
+  },
+  "action": {
+    "default_title": "Universal QR Camera Dashboard",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon.png",
+      "48": "icons/icon.png",
+      "128": "icons/icon.png"
+    }
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://discord.com/api/webhooks/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://presensi.polines.ac.id/*"
+      ],
+      "js": [
+        "content/qr-detector.js",
+        "content/gps-handler.js",
+        "content/camera-observer.js",
+        "content/ui-injector.js",
+        "content/content.js"
+      ],
+      "css": [
+        "content/styles.css"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "content/bridge-geolocation.js",
+        "content/bridge-camera.js",
+        "content/bridge-network.js"
+      ],
+      "matches": [
+        "https://presensi.polines.ac.id/*"
+      ]
+    }
+  ]
+}

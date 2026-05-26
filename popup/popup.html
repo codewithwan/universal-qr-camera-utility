@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Universal QR Camera Utility</title>
+    <link rel="stylesheet" href="leaflet.css">
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main>
+      <header>
+        <img src="../icons/icon.png" alt="">
+        <div>
+          <h1>QR Camera Utility</h1>
+          <p>Diagnostics & feedback</p>
+        </div>
+      </header>
+
+      <!-- GPS Spoofer Section (Stealth Hidden by Default) -->
+      <div id="gps-spoofer-section" class="field" style="display: none;">
+        <label class="gps-toggle-label">
+          <input type="checkbox" id="gps-enabled">
+          <span>Enable GPS Spoofer</span>
+        </label>
+        <div class="gps-coords-inputs">
+          <div class="gps-input-row">
+            <label class="gps-input-col">
+              <span>Latitude</span>
+              <input type="number" id="gps-lat" step="any" placeholder="-7.052547">
+            </label>
+            <label class="gps-input-col">
+              <span>Longitude</span>
+              <input type="number" id="gps-lng" step="any" placeholder="110.434410">
+            </label>
+          </div>
+          <div id="gps-map" class="map-container"></div>
+        </div>
+      </div>
+
+      <label class="field">
+        <span>Diagnostics Feedback</span>
+        <textarea id="feedback" rows="3" placeholder="Bug, success note, or idea"></textarea>
+      </label>
+
+      <div class="actions">
+        <button id="sendFeedback" type="button">Send Feedback</button>
+      </div>
+
+      <p id="status" class="status"></p>
+    </main>
+    <script src="leaflet.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
